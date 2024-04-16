@@ -5,16 +5,19 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vue-tsc && vite build",
+    "build": "vue-tsc && vite-ssg build",
     "preview": "vite preview"
   },
   "dependencies": {
     "vue": "^3.4.21"
   },
   "devDependencies": {
+    "@unhead/vue": "^1.9.5",
     "@vitejs/plugin-vue": "^5.0.4",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
+    "vite-ssg": "^0.23.6",
+    "vue-router": "^4.3.0",
     "vue-tsc": "^2.0.6"
   }
 }

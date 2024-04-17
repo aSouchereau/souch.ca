@@ -1,14 +1,16 @@
 <script setup lang="ts">
-
+  const props = defineProps({
+    closeMenu: Function
+  });
 </script>
 
 <template>
   <ul>
     <li>
-      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/" @click="props.closeMenu">Home</RouterLink>
     </li>
     <li>
-      <RouterLink to="/gallery">Gallery</RouterLink>
+      <RouterLink to="/gallery" @click="props.closeMenu">Gallery</RouterLink>
     </li>
   </ul>
 </template>

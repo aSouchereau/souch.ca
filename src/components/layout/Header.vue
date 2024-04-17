@@ -39,7 +39,7 @@ function closeMenu(event: Event) {
             </button>
           </header>
 
-          <NavList></NavList>
+          <NavList :closeMenu="closeMenu" />
         </div>
       </div>
     </nav>

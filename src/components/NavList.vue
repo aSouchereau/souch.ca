@@ -20,8 +20,25 @@
     list-style-type: none;
   }
 
+  li {
+    margin-bottom: 2rem;
+  }
+
   a {
     text-decoration: none;
     color: var(--black);
+  }
+  
+  @media only screen
+    and (min-width: 500px) {
+    li {
+      margin: 0 1rem;
+    }
+
+    ul {
+      display: flex;
+      justify-content: right;
+    }
+
   }
 </style>

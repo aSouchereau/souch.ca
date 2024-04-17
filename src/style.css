@@ -11,6 +11,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --off-white: 255, 252, 241;
+  --black: 51, 46, 47;
 }
 body {
   margin: 0;

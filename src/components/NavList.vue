@@ -27,6 +27,8 @@
   a {
     text-decoration: none;
     color: var(--black);
+    font-family: var(--style-font);
+    font-weight: 400;
   }
   
   @media only screen

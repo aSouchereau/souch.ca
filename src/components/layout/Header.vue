@@ -45,7 +45,7 @@ function closeMenu(event: Event) {
 
           <NavList :closeMenu="closeMenu" />
         </div>
-        <div id="mobile-menu-backdrop"></div>
+        <div id="mobile-menu-backdrop" @click="closeMenu"></div>
       </div>
     </nav>
 

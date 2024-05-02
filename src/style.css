@@ -1,5 +1,5 @@
 :root {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -10,6 +10,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --style-font: "Playfair Display", serif;
+  --body-font: "Poppins", sans-serif;
 
   --off-white: 255, 252, 241;
   --black: 51, 46, 47;

@@ -3,16 +3,20 @@ import NavList from '/src/components/NavList.vue';
 function openMenu(event: Event) {
   event.preventDefault();
   let menu = document.getElementById('mobile-nav-menu');
-  if (menu !== null) {
-    menu.style.display = "block"
+  let backdrop = document.getElementById('mobile-menu-backdrop');
+  if (menu !== null && backdrop !== null) {
+    menu.style.display = "block";
+    backdrop.style.display = "block";
   }
 }
 
 function closeMenu(event: Event) {
   event.preventDefault();
   let menu = document.getElementById('mobile-nav-menu');
-  if (menu !== null) {
-    menu.style.display = "none"
+  let backdrop = document.getElementById('mobile-menu-backdrop');
+  if (menu !== null && backdrop !== null) {
+    menu.style.display = "none";
+    backdrop.style.display = "none";
   }
 }
 
@@ -41,6 +45,7 @@ function closeMenu(event: Event) {
 
           <NavList :closeMenu="closeMenu" />
         </div>
+        <div id="mobile-menu-backdrop"></div>
       </div>
     </nav>
 
@@ -59,8 +64,10 @@ function closeMenu(event: Event) {
     justify-content: space-between;
     align-items: center;
     padding: 1em;
+    margin-bottom: 3rem;
     background: rgb(var(--off-white));
     color: rgb(var(--black));
+    box-shadow: 0 10px 15px -10px rgba(var(--black), 0.15);
   }
 
   .logo {
@@ -103,5 +110,17 @@ function closeMenu(event: Event) {
     width: 90%;
     height: 100%;
     background: rgb(var(--off-white));
+    z-index: 1000;
+  }
+  #mobile-menu-backdrop {
+    content: "";
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(var(--black),0.5);
+    z-index: 999;
   }
 </style>

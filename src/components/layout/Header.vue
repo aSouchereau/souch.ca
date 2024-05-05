@@ -23,39 +23,44 @@ function closeMenu(event: Event) {
 </script>
 
 <template>
-  <header>
-    <nav>
-      <div id="mobile-nav">
-        <button @click="openMenu">
-          <span class="material-symbols-outlined">menu</span>
-        </button>
-
-        <div id="mobile-nav-menu">
-          <header class="menu-header">
-            <div class="placeholder"></div>
-
-            <div class="logo">
-              <img src="/src/assets/branding/souch.ca_logomark-fullColour.svg" alt="souch.ca icon logo">
-            </div>
-
-            <button @click="closeMenu">
-              <span class="material-symbols-outlined">close</span>
-            </button>
-          </header>
-
-          <NavList :closeMenu="closeMenu" />
+  <div class="header-wrapper">
+    <header>
+      <nav>
+        <div id="desktop-nav">
+          <NavList />
         </div>
-        <div id="mobile-menu-backdrop" @click="closeMenu"></div>
+        <div id="mobile-nav">
+          <button @click="openMenu">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+
+          <div id="mobile-nav-menu">
+            <header class="menu-header">
+              <div class="placeholder"></div>
+
+              <div class="logo">
+                <img src="/src/assets/branding/souch.ca_logomark-fullColour.svg" alt="souch.ca icon logo">
+              </div>
+
+              <button @click="closeMenu">
+                <span class="material-symbols-outlined">close</span>
+              </button>
+            </header>
+
+            <NavList :closeMenu="closeMenu" />
+          </div>
+          <div id="mobile-menu-backdrop" @click="closeMenu"></div>
+        </div>
+      </nav>
+
+      <div class="logo">
+        <img src="/src/assets/branding/souch.ca_wordmark-lightBG.svg"/>
       </div>
-    </nav>
 
-    <div class="logo">
-      <img src="/src/assets/branding/souch.ca_wordmark-lightBG.svg"/>
-    </div>
+      <div class="placeholder"></div>
 
-    <div class="placeholder"></div>
-
-  </header>
+    </header>
+  </div>
 </template>
 
 <style scoped>
@@ -64,14 +69,21 @@ function closeMenu(event: Event) {
     justify-content: space-between;
     align-items: center;
     padding: 1em;
+  }
+
+  .header-wrapper {
     margin-bottom: 3rem;
     background: rgb(var(--off-white));
     color: rgb(var(--black));
     box-shadow: 0 10px 15px -10px rgba(var(--black), 0.15);
   }
 
+  #desktop-nav {
+    display: none;
+  }
+
   .logo {
-    width: 35%;
+    width: 9rem;
   }
   #mobile-nav-menu .logo {
     width: 20%;
@@ -122,5 +134,33 @@ function closeMenu(event: Event) {
     height: 100%;
     background: rgba(var(--black),0.5);
     z-index: 999;
+  }
+
+  @media only screen
+    and (min-width: 496px) {
+    #mobile-nav,div.placeholder {
+      display: none;
+    }
+    #desktop-nav {
+      display: flex;
+    }
+
+    header {
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      padding: 1em 2em;
+    }
+
+    .logo {
+      width: 9rem;
+    }
+  }
+
+  @media only screen
+    and (min-width: 992px) {
+    header {
+      width: 62em;
+      margin: 0 auto;
+    }
   }
 </style>

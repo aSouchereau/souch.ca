@@ -32,7 +32,7 @@
   }
   
   @media only screen
-    and (min-width: 500px) {
+    and (min-width: 496px) {
     li {
       margin: 0 1rem;
     }

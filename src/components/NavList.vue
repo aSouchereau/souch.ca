@@ -40,6 +40,7 @@
     ul {
       display: flex;
       justify-content: right;
+      margin: 0;
     }
 
   }

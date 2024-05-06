@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import NavList from '/src/components/NavList.vue';
+
+import NavList from "@/components/NavList.vue";
+
 function openMenu(event: Event) {
   event.preventDefault();
   let menu = document.getElementById('mobile-nav-menu');

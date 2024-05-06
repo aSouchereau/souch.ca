@@ -35,19 +35,21 @@ function closeMenu(event: Event) {
           </button>
 
           <div id="mobile-nav-menu">
-            <header class="menu-header">
-              <div class="placeholder"></div>
+            <div class="header-wrapper">
+              <header class="menu-header">
+                <div class="placeholder"></div>
 
-              <div class="logo">
-                <RouterLink to="/" @click="closeMenu">
-                  <img src="/src/assets/branding/souch.ca_logomark-fullColour.svg" alt="souch.ca icon logo">
-                </RouterLink>
-              </div>
+                <div class="logo">
+                  <RouterLink to="/" @click="closeMenu">
+                    <img src="/src/assets/branding/souch.ca_logomark-fullColour.svg" alt="souch.ca icon logo">
+                  </RouterLink>
+                </div>
 
-              <button @click="closeMenu">
-                <span class="material-symbols-outlined">close</span>
-              </button>
-            </header>
+                <button @click="closeMenu">
+                  <span class="material-symbols-outlined">close</span>
+                </button>
+              </header>
+            </div>
 
             <NavList :closeMenu="closeMenu" />
           </div>

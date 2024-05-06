@@ -39,7 +39,9 @@ function closeMenu(event: Event) {
               <div class="placeholder"></div>
 
               <div class="logo">
-                <img src="/src/assets/branding/souch.ca_logomark-fullColour.svg" alt="souch.ca icon logo">
+                <RouterLink to="/" @click="closeMenu">
+                  <img src="/src/assets/branding/souch.ca_logomark-fullColour.svg" alt="souch.ca icon logo">
+                </RouterLink>
               </div>
 
               <button @click="closeMenu">
@@ -54,7 +56,9 @@ function closeMenu(event: Event) {
       </nav>
 
       <div class="logo">
-        <img src="/src/assets/branding/souch.ca_wordmark-lightBG.svg"/>
+        <RouterLink to="/">
+          <img src="/src/assets/branding/souch.ca_wordmark-lightBG.svg"/>
+        </RouterLink>
       </div>
 
       <div class="placeholder"></div>

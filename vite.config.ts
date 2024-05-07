@@ -13,13 +13,13 @@ export default defineConfig(({mode}) => {
     server: {
       proxy: {
         '/api/' : {
-          target: env.VITE_LYCHEE_BASE_URL,
+          target: env.LYCHEE_BASE_URL,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
-            'Authorization' : `Bearer ${env.VITE_PUB_LYCHEE_KEY}`,
+            'Authorization' : `Bearer ${env.PUB_LYCHEE_KEY}`,
           }
 
         }

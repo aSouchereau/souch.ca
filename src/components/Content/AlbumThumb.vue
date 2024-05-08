@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import {Router, useRouter} from "vue-router";
+
   const props = defineProps({
     albumId: { type: String, required: true },
     title: { type: String, required: true },
@@ -11,12 +13,16 @@
     bgUrl = props.thumbUrl;
   }
 
-  console.log(bgUrl);
+  const router: Router = useRouter();
+
+  function navigate() {
+    router.push(`/album/${props.albumId}`);
+  }
 
 </script>
 
 <template>
-  <div class="thumb-wrapper">
+  <div class="thumb-wrapper" @click="navigate">
     <div class="content">
       <div class="title">
         <span class="album-title">{{props.title}}</span>

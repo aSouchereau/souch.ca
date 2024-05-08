@@ -8,7 +8,7 @@ import Album from "@/components/Pages/Album.vue";
 const routes = [
     { path: '/', component: Index },
     { path: '/gallery', component: Gallery},
-    { path: '/album', component: Album },
+    { path: '/album/:id', component: Album },
 ];
 export const createApp = ViteSSG(
     App,

@@ -34,11 +34,10 @@ import {Router, useRouter} from "vue-router";
 <style scoped>
   div.thumb-wrapper {
     position: relative;
+    height: 100%;
     background: rgb(79,79,79);
     background: radial-gradient(circle, rgba(79,79,79,1) 0%, rgba(52,52,52,1) 100%);
     border-radius: 5px;
-    width: 20vw;
-    height: 20vh;
     overflow: hidden;
     outline: 1px solid rgba(var(--black),0.25);
     outline-offset: 0;
@@ -64,7 +63,6 @@ import {Router, useRouter} from "vue-router";
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
   }
 
   .title {

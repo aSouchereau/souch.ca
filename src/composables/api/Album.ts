@@ -13,3 +13,12 @@ export function useAlbums() {
 
     return { isFetching, isFinished, error, data };
 }
+
+export function useAlbum(albumId: string)  {
+    const body = {
+        albumId: albumId,
+    }
+    const { isFetching, isFinished, error, data } = useFetch("/api/Album::get").post(body).json();
+
+    return { isFetching, isFinished, error, data };
+}

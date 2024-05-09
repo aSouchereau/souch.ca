@@ -22,10 +22,17 @@
 <style scoped>
   .albums-container {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
     grid-auto-rows: 15rem;
     width: 100%;
     row-gap: 1rem;
     column-gap: 1rem;
+  }
+
+  @media only screen
+    and (min-width: 496px) {
+    .albums-container {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 </style>

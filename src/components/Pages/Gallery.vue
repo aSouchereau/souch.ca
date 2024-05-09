@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <div v-if="isFetching">
+  <div v-if="isFetching" class="loader-container">
     <Loader />
   </div>
   <div v-else class="albums-container">

@@ -7,8 +7,12 @@ import {RouteLocationNormalizedLoaded, useRoute} from "vue-router";
 </script>
 
 <template>
-<h2>Hello</h2>
-  {{albumId}}
+<div v-if="isFetching">
+  <Loader />
+</div>
+<div v-else>
+
+</div>
 </template>
 
 <style scoped>

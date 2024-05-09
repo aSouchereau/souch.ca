@@ -7,7 +7,16 @@
 </template>
 
 <style scoped>
+:global(.loader-container) {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .loader {
+  color: rgb(var(--green));
   width: 30px;
   height: 60px;
   padding-top: 60px;

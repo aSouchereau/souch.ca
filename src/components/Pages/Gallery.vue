@@ -6,13 +6,10 @@
 </script>
 
 <template>
-<h2>Test</h2>
-  <p v-if="isFetching">Loading...</p>
-  <div v-else-if="error">
-    <p>{{error}}</p>
+  <div v-if="isFetching">
+    <Loader />
   </div>
-  <p v-else-if="isFinished">Done!</p>
-  <div class="albums-container">
+  <div v-else class="albums-container">
     <div v-for="album in data" :key="album.id" :id="'album' + album.id">
       <AlbumThumb :album-id="album.id" :title="album.title" :thumb-url="album.thumb ? album.thumb.thumb : null"/>
     </div>

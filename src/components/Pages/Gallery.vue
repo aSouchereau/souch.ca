@@ -1,8 +1,16 @@
 <script setup lang="ts">
   import {useAlbums} from "@/composables/api/Album.ts";
   import AlbumThumb from "@/components/Content/AlbumThumb.vue";
+  import {Router, useRouter} from "vue-router";
+  import Loader from "@/components/Utility/Loader.vue";
+
+  const router: Router = useRouter();
 
   const { isFetching, isFinished, error, data } = useAlbums();
+
+  if (error.value) {
+    router.push('/404');
+  }
 </script>
 
 <template>

@@ -16,7 +16,7 @@ export function useAlbums() {
 
 export function useAlbum(albumId: string)  {
     const body = {
-        albumId: albumId,
+        albumID: albumId,
     }
     const { isFetching, isFinished, error, data } = useFetch("/api/Album::get").post(body).json();
 

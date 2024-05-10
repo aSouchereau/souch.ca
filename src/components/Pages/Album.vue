@@ -2,6 +2,7 @@
 import {RouteLocationNormalizedLoaded, Router, useRoute, useRouter} from "vue-router";
 import {useAlbum} from "@/composables/api/Album.ts";
 import Loader from "@/components/Utility/Loader.vue";
+import {watch} from "vue";
 
   const route: RouteLocationNormalizedLoaded = useRoute();
   const albumId = route.params.id.toString();
@@ -9,11 +10,11 @@ import Loader from "@/components/Utility/Loader.vue";
 
   const { isFetching, error, data } = useAlbum(albumId);
 
-  console.log(error);
-
-  if (error.value) {
-    router.push("/404");
-  }
+  watch(error, (error) => {
+    if (error) {
+      router.push('/404');
+    }
+  });
 
 </script>
 

@@ -3,14 +3,18 @@
   import AlbumThumb from "@/components/Content/AlbumThumb.vue";
   import {Router, useRouter} from "vue-router";
   import Loader from "@/components/Utility/Loader.vue";
+  import {watch} from "vue";
 
   const router: Router = useRouter();
 
-  const { isFetching, isFinished, error, data } = useAlbums();
+  const { isFetching, error, data } = useAlbums();
 
-  if (error.value) {
-    router.push('/404');
-  }
+  watch(error, (error) => {
+    if (error) {
+      router.push('/404');
+    }
+  });
+
 </script>
 
 <template>

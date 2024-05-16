@@ -27,7 +27,7 @@
       conic-gradient(from 134deg at top,#0000 ,currentColor 1deg 90deg,#0000 91deg) top/100% 15px;
   background-origin: content-box;
   background-repeat: no-repeat;
-  animation: l10-0 2s infinite;
+  animation: l10-0 1s infinite;
 }
 .loader:before,
 .loader:after {
@@ -35,11 +35,11 @@
   grid-area: 1/1;
   background:inherit;
   background-size: 10px calc(100% - 25px),100% 25px;
-  animation: l10-1 2s infinite;
+  animation: l10-1 1s infinite;
 }
 .loader:after {
   background-size: 10px calc(100% - 30px),100% 30px;
-  animation: l10-2 2s infinite;
+  animation: l10-2 1s infinite;
 }
 @keyframes l10-0 {
   25%,100% {padding-top:0px}

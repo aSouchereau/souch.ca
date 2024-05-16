@@ -8,7 +8,7 @@ import {watch} from "vue";
   const albumId = route.params.id.toString();
   const router: Router = useRouter();
 
-  const { isFetching, error, data } = useAlbum(albumId);
+  const { isFetching, isFinished, error, data } = useAlbum(albumId);
 
   watch(error, (error) => {
     if (error) {
@@ -19,11 +19,12 @@ import {watch} from "vue";
 </script>
 
 <template>
-<div v-if="isFetching">
+<div v-if="isFetching" class="loader-container">
   <Loader />
 </div>
-<div v-else>
-
+<div v-else-if="isFinished">
+  <h2>{{data.title}}</h2>
+  <p>{{data.description}}</p>
 </div>
 </template>
 

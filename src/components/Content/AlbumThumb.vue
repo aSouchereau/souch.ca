@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {Router, useRouter} from "vue-router";
+import imgUrl from "/src/assets/img/albumthumb.jpg";
 
   const props = defineProps({
     albumId: { type: String, required: true },
@@ -7,7 +8,7 @@ import {Router, useRouter} from "vue-router";
     thumbUrl: { type: String, required: false },
   });
 
-  let bgUrl = "/src/assets/img/albumthumb.jpg";
+  let bgUrl = imgUrl;
 
   if (props.thumbUrl) {
     bgUrl = props.thumbUrl;

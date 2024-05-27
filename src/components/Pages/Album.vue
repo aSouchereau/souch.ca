@@ -10,7 +10,6 @@ import MasonryWall from "@yeger/vue-masonry-wall";
 /***********************
           TOC
  1. Data
- 2. Masonry Layout
  ***********************/
 
 /*****************
@@ -43,10 +42,6 @@ import MasonryWall from "@yeger/vue-masonry-wall";
     });
   });
 
-
-/***********************
-   2. Masonry Layout
- ***********************/
 
 
 </script>

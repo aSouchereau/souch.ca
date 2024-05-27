@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {onMounted, onUnmounted, onUpdated, ref} from "vue";
-import {Fancybox} from "@fancyapps/ui";
+import * as pkg from "@fancyapps/ui";
+const { Fancybox } = pkg;
 import '@fancyapps/ui/dist/fancybox/fancybox.css'
 
   const props = defineProps({

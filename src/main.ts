@@ -5,7 +5,6 @@ import Index from "./components/Pages/Index.vue";
 import Gallery from "./components/Pages/Gallery.vue";
 import Album from "@/components/Pages/Album.vue";
 import NotFound from "@/components/Pages/NotFound.vue";
-import MasonryWall from "@yeger/vue-masonry-wall";
 
 const routes = [
     { path: '/', component: Index },
@@ -17,7 +16,4 @@ const routes = [
 export const createApp = ViteSSG(
     App,
     { routes },
-    ({ app}) => {
-        app.use(MasonryWall);
-    },
 );

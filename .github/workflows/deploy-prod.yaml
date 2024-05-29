@@ -17,29 +17,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Inject API token into vercel config
-        uses: sergeysova/jq-action@v2
-        id: rewrites
+      - name: Secure Copy Repository
+        uses: appleboy/scp-action@master
+        env:
+          HOST: ${{ secrets.DEPLOY_SSH_HOST }}
+          USERNAME: ${{ secrets.DEPLOY_SSH_USERNAME }}
+          PORT: ${{ secrets.DEPLOY_SSH_PORT }}
+          KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          PASSPHRASE: ${{ secrets.DEPLOY_SSH_PASSPHRASE }}
         with:
-          cmd: jq --arg token ${{ secrets.PUB_LYCHEE_KEY }} --arg baseurl ${{ secrets.LYCHEE_BASE_URL }}  '.|.rewrites[0].has[0].value="Bearer $token"|.rewrites[0].destination=$baseurl' vercel.json > tmpvercel.json && mv tmpvercel.json vercel.json
-
-      - name: Test Output
-        id: inject_output
-        uses: ActionsTools/read-json-action@main
-        with:
-          file_path: "vercel.json"
-
-      - run: |
-          echo ${{ steps.inject_output.outputs.rewrites }}
-
-      - name: Install Vercel CLI
-        run: npm install --global vercel
-
-      - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Deploy Project Artifacts
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+          source: "."
+          target: "/var/www/html/souchca"

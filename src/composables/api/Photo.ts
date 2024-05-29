@@ -7,7 +7,7 @@ export function useImage(photoId: string | undefined)  {
             return ctx;
         },
     }
-    const { isFetching, isFinished, error, data } = useFetch("/apiv1/Photo::get", options)
+    const { isFetching, isFinished, error, data } = useFetch("/api/Photo::get", options)
         .post({
             photoId: photoId
         },)

@@ -1,7 +1,7 @@
 import {useFetch} from "@vueuse/core";
 
 export function useAlbums() {
-    const { isFetching, isFinished, error, data } = useFetch("/apiv1/Albums::get", {
+    const { isFetching, isFinished, error, data } = useFetch("/api/Albums::get", {
         afterFetch(ctx) {
             let albums = ctx.data.albums;
             albums = albums.concat(ctx.data.shared_albums);
@@ -18,7 +18,7 @@ export function useAlbum(albumId: string)  {
     const body = {
         albumID: albumId,
     }
-    const { isFetching, isFinished, error, data } = useFetch("/apiv1/Album::get").post(body).json();
+    const { isFetching, isFinished, error, data } = useFetch("/api/Album::get").post(body).json();
 
     return { isFetching, isFinished, error, data };
 }

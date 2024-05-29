@@ -28,13 +28,9 @@ jobs:
         id: readConfig
         with:
           cmd: 'jq . vercel.json -r'
-          multiline: true
+          multiline: false
       - name: Temporary Read Vercel Config
-        run: |
-          lines="${{ steps.readConfig.outputs.value }}"
-          for line in $lines; do
-            echo "$line"
-          done
+        run: 'echo ${{ steps.readConfig.outputs.value }}'
 
       - name: Install Vercel CLI
         run: npm install --global vercel

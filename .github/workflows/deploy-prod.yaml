@@ -32,7 +32,7 @@ jobs:
 
       - name: Show output
         run: |
-          testOutputLines="${{ steps.keywords.outputs.value }}"
+          testOutputLines="${{ steps.testOutput.outputs.value }}"
           for line in $testOutputLines; do
             echo "$line"
           done

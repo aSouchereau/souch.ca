@@ -21,7 +21,7 @@ jobs:
         uses: sergeysova/jq-action@v2
         id: rewrites
         with:
-          cmd: jq --arg token ${{ secrets.PUB_LYCHEE_KEY }} --arg baseurl ${{ secrets.LYCHEE_BASE_URL }}  '.|.rewrites[0].has[0].value="Bearer $token"|.rewrites[0].destination="$baseurl"' vercel.json > tmpvercel.json && mv tmpvercel.json vercel.json
+          cmd: jq --arg token ${{ secrets.PUB_LYCHEE_KEY }} --arg baseurl ${{ secrets.LYCHEE_BASE_URL }}  '.|.rewrites[0].has[0].value="Bearer $token"|.rewrites[0].destination=$baseurl' vercel.json > tmpvercel.json && mv tmpvercel.json vercel.json
 
       - name: Temp Test Output
         uses: sergeysova/jq-action@v2

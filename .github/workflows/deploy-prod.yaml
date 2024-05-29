@@ -21,7 +21,7 @@ jobs:
         uses: sergeysova/jq-action@v2
         id: rewrites
         with:
-          cmd: jq '.|.rewrites[0].has[0].value="Bearer ${{ secrets.PUB_LYCHEE_KEY }}"|.rewrites[0].destination="${{ secrets.LYCHEE_BASE_URL }}"' vercel.json > tmpvercel.json && mv tmpvercel.json vercel.json
+          cmd: jq --arg token ${{ secrets.PUB_LYCHEE_KEY }} --arg baseurl ${{ secrets.LYCHEE_BASE_URL }}  '.|.rewrites[0].has[0].value="Bearer $token"|.rewrites[0].destination="$baseurl"' vercel.json > tmpvercel.json && mv tmpvercel.json vercel.json
 
       - name: Temp Test Output
         uses: sergeysova/jq-action@v2
@@ -29,6 +29,10 @@ jobs:
         with:
           cmd: 'cat vercel.json | jq ".rewrites"'
           multiline: true
+
+      ##### Trying to fix output of following step, look into jq args (https://stackoverflow.com/questions/34745451/passing-arguments-to-jq-filter)
+
+
 
       - name: Show output
         run: |

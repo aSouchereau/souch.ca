@@ -28,6 +28,7 @@ jobs:
         id: testOutput
         with:
           cmd: 'cat vercel.json | jq ".rewrites"'
+          multiline: true
 
       - name: Temp Read Vercel Config
         run: |

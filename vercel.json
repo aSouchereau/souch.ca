@@ -1,5 +1,26 @@
 {
   "rewrites": [
+    {
+      "source": "/api/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "Authorization",
+          "value": "Bearer REDACTED"
+        },
+        {
+          "type": "header",
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "destination": "REDACTED"
+    },
     { "source": "/(.*)", "destination": "/" }
   ]
 }

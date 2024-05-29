@@ -26,7 +26,7 @@ jobs:
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           overwrite: true
           tar_tmp_path: "/home/souch/tmp/"
-          source: "."
+          source: "src/,public/,index.html,package.json,package-lock.json,tsconfig.json,tsconfig-node.json,vite.config.ts"
           target: "/home/souch/html/souchca"
 
       - name: Move Files to Correct DIR

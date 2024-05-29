@@ -28,3 +28,12 @@ jobs:
           tar_tmp_path: "/home/souch/tmp/"
           source: "."
           target: "/home/souch/html/souchca"
+
+      - name: Move Files to Correct DIR
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEPLOY_SSH_HOST }}
+          username: ${{ secrets.DEPLOY_SSH_USERNAME }}
+          port: ${{ secrets.DEPLOY_SSH_PORT }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: mv /home/souch/html/souchca /var/www/html/souchca

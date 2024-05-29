@@ -23,35 +23,14 @@ jobs:
         with:
           cmd: jq --arg token ${{ secrets.PUB_LYCHEE_KEY }} --arg baseurl ${{ secrets.LYCHEE_BASE_URL }}  '.|.rewrites[0].has[0].value="Bearer $token"|.rewrites[0].destination=$baseurl' vercel.json > tmpvercel.json && mv tmpvercel.json vercel.json
 
-      - name: Temp Test Output
-        uses: sergeysova/jq-action@v2
-        id: testOutput
+      - name: Test Output
+        id: inject_output
+        uses: ActionsTools/read-json-action@main
         with:
-          cmd: 'cat vercel.json | jq ".rewrites"'
-          multiline: true
+          file_path: "vercel.json"
 
-      ##### Trying to fix output of following step, look into jq args (https://stackoverflow.com/questions/34745451/passing-arguments-to-jq-filter)
-
-
-
-      - name: Show output
-        run: |
-          testOutputLines="${{ steps.testOutput.outputs.value }}"
-          for line in $testOutputLines; do
-            echo "$line"
-          done
-
-      - name: Temp Read Vercel Config
-        run: |
-          content=`cat vercel.json`
-          # the following lines are only required for multi line json (https://stackoverflow.com/a/61919791)
-          content="${content//'%'/'%25'}"
-          content="${content//$'\n'/'%0A'}"
-          content="${content//$'\r'/'%0D'}"
-          # end of optional handling for multi line json
-          echo "::set-output name=packageJson::$content"
       - run: |
-          echo "${{fromJson(steps.set_var.outputs.packageJson).version}}"
+          echo ${{ steps.inject_output.outputs.rewrites }}
 
       - name: Install Vercel CLI
         run: npm install --global vercel

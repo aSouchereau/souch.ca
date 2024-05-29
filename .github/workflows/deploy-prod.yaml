@@ -25,7 +25,7 @@ jobs:
 
       - name: Temp Read Vercel Config
         run: |
-          content=`cat ./path/to/package.json`
+          content=`cat vercel.json`
           # the following lines are only required for multi line json (https://stackoverflow.com/a/61919791)
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"

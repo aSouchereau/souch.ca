@@ -29,11 +29,11 @@ jobs:
           source: "src/,public/,index.html,package.json,package-lock.json,tsconfig.json,tsconfig-node.json,vite.config.ts"
           target: "/home/souch/html/souchca"
 
-      - name: Move Files to Correct DIR
+      - name: Run Deploy Script
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.DEPLOY_SSH_HOST }}
           username: ${{ secrets.DEPLOY_SSH_USERNAME }}
           port: ${{ secrets.DEPLOY_SSH_PORT }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
-          script: sh /home/souch/delpoy.sh
+          script: sh /home/souch/deploy.sh

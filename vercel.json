@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/api/:path*",
+      "source": "/apiv1/:path*",
       "has": [
         {
           "type": "header",

@@ -30,6 +30,13 @@ jobs:
           cmd: 'cat vercel.json | jq ".rewrites"'
           multiline: true
 
+      - name: Show output
+        run: |
+          testOutputLines="${{ steps.keywords.outputs.value }}"
+          for line in $testOutputLines; do
+            echo "$line"
+          done
+
       - name: Temp Read Vercel Config
         run: |
           content=`cat vercel.json`

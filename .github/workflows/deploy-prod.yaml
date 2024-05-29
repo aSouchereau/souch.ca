@@ -21,7 +21,7 @@ jobs:
         uses: sergeysova/jq-action@v2
         id: rewrites
         with:
-          cmd: 'jq . | .rewrites[0].has[0].value = "Bearer ${{ secrets.PUB_LYCHEE_KEY }}" | .rewrites[0].destination = "${{ secrets.LYCHEE_BASE_URL }}" vercel.json > tmpvercel.json && mv tmpvercel.json vercel.json'
+          cmd: 'jq .|.rewrites[0].has[0].value="Bearer ${{ secrets.PUB_LYCHEE_KEY }}"|.rewrites[0].destination="${{ secrets.LYCHEE_BASE_URL }}" vercel.json > tmpvercel.json && mv tmpvercel.json vercel.json'
 
       - name: Install Vercel CLI
         run: npm install --global vercel

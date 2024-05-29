@@ -23,6 +23,19 @@ jobs:
         with:
           cmd: jq '.|.rewrites[0].has[0].value="Bearer ${{ secrets.PUB_LYCHEE_KEY }}"|.rewrites[0].destination="${{ secrets.LYCHEE_BASE_URL }}"' vercel.json > tmpvercel.json && mv tmpvercel.json vercel.json
 
+      - name: Temporary Extract Vercel Config
+        uses: sergeysova/jq-action@v2
+        id: readConfig
+        with:
+          cmd: 'jq . vercel.json -r'
+          multiline: true
+      - name: Temporary Read Vercel Config
+        run: |
+          lines="${{ steps.readConfig.outputs.value }}"
+          for line in $lines; do
+            echo "$line"
+          done
+
       - name: Install Vercel CLI
         run: npm install --global vercel
 

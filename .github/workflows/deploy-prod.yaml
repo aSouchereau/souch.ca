@@ -36,4 +36,4 @@ jobs:
           username: ${{ secrets.DEPLOY_SSH_USERNAME }}
           port: ${{ secrets.DEPLOY_SSH_PORT }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
-          script: mv /home/souch/html/souchca /var/www/html/souchca
+          script: sh /home/souch/delpoy.sh

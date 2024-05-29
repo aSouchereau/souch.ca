@@ -27,4 +27,4 @@ jobs:
           overwrite: true
           tar_tmp_path: "/home/souch/tmp/"
           source: "."
-          target: "/var/www/html/souchca"
+          target: "/home/souch/html/souchca"

@@ -23,14 +23,17 @@ jobs:
         with:
           cmd: jq '.|.rewrites[0].has[0].value="Bearer ${{ secrets.PUB_LYCHEE_KEY }}"|.rewrites[0].destination="${{ secrets.LYCHEE_BASE_URL }}"' vercel.json > tmpvercel.json && mv tmpvercel.json vercel.json
 
-      - name: Temporary Extract Vercel Config
-        uses: sergeysova/jq-action@v2
-        id: readConfig
-        with:
-          cmd: 'jq . vercel.json -r'
-          multiline: false
-      - name: Temporary Read Vercel Config
-        run: 'echo ${{ steps.readConfig.outputs.value }}'
+      - name: Temp Read Vercel Config
+        run: |
+          content=`cat ./path/to/package.json`
+          # the following lines are only required for multi line json (https://stackoverflow.com/a/61919791)
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          echo "::set-output name=packageJson::$content"
+      - run: |
+          echo "${{fromJson(steps.set_var.outputs.packageJson).version}}"
 
       - name: Install Vercel CLI
         run: npm install --global vercel

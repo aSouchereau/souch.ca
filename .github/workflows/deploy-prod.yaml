@@ -24,5 +24,7 @@ jobs:
           username: ${{ secrets.DEPLOY_SSH_USERNAME }}
           port: ${{ secrets.DEPLOY_SSH_PORT }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
+          overwrite: true
+          tar_tmp_path: "/home/souch/tmp"
           source: "."
           target: "/var/www/html/souchca"

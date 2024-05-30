@@ -4,6 +4,12 @@
   import {Router, useRouter} from "vue-router";
   import Loader from "@/components/Utility/Loader.vue";
   import {watch} from "vue";
+  import {useHead} from "@unhead/vue";
+
+  useHead({
+    title: 'souch.ca | Gallery'
+  });
+
 
   const router: Router = useRouter();
 

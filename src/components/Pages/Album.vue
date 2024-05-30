@@ -5,7 +5,7 @@ import Loader from "@/components/Utility/Loader.vue";
 import { watch } from "vue";
 import Lightbox from "@/components/Utility/Lightbox.vue";
 import MasonryWall from "@yeger/vue-masonry-wall";
-
+import {useHead} from "@unhead/vue";
 
 /***********************
           TOC
@@ -39,6 +39,10 @@ import MasonryWall from "@yeger/vue-masonry-wall";
         caption: `${photo.description ?? ""}<span class="copy-notice">Image &copy; ${date.getFullYear()} Alex Souchereau. All Rights Reserved.</span>`,
         src: photo.size_variants.medium2x?.url ?? photo.size_variants.medium?.url ?? photo.size_variants.small2x?.url ?? photo.size_variants.small.url,
       });
+    });
+
+    useHead({
+      title: 'souch.ca | ' + data.title,
     });
   });
 

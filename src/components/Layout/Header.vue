@@ -75,6 +75,7 @@ function closeMenu(event: Event) {
   header {
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
     align-items: center;
     padding: 1em;
   }

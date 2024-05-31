@@ -27,7 +27,7 @@
   <div v-if="isFetching" class="loader-container">
     <Loader />
   </div>
-  <div v-else class="albums-container">
+  <div v-else class="albums-container container">
     <div v-for="album in data" :key="album.id" :id="'album' + album.id">
       <AlbumThumb :album-id="album.id" :title="album.title" :thumb-url="album.thumb ? album.thumb.thumb : null"/>
     </div>
@@ -39,7 +39,6 @@
     display: grid;
     grid-template-columns: auto;
     grid-auto-rows: 15rem;
-    width: 100%;
     row-gap: 1rem;
     column-gap: 1rem;
   }

@@ -7,9 +7,15 @@
 </script>
 
 <template>
-<h1>Welcome</h1>
+<section id="hero"></section>
+<section id="sub-headline"></section>
+<section id="featured"></section>
+<section id=""></section>
 </template>
 
 <style scoped>
-
+#hero {
+  min-height: 50vh;
+  background: red;
+}
 </style>

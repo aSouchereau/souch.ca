@@ -54,7 +54,7 @@ import {useHead} from "@unhead/vue";
 <div v-if="isFetching" class="loader-container">
   <Loader />
 </div>
-<div v-else-if="isFinished">
+<div v-else-if="isFinished" class="container">
   <header class="album-header">
     <h2>{{data.title}}</h2>
     <p>{{data.description}}</p>
@@ -74,7 +74,7 @@ import {useHead} from "@unhead/vue";
         }
       }
     }">
-      <MasonryWall :items="photos" :ssr-columns="1" :column-width="300" :gap="16">
+      <MasonryWall :items="photos" :ssr-columns="1" :column-width="250" :gap="10">
         <template #default="{ item }">
           <li class="gallery-item">
             <a

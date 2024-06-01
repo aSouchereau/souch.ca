@@ -9,8 +9,10 @@ useHead({
 </script>
 
 <template>
-  <h2>Oops...</h2>
-  <p>That page could not be found</p>
+  <div class="container">
+    <h2>Oops...</h2>
+    <p>That page could not be found</p>
+  </div>
 </template>
 
 <style scoped>

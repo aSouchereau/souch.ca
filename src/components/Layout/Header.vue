@@ -81,7 +81,7 @@ function closeMenu(event: Event) {
   }
 
   .header-wrapper {
-    margin-bottom: 3rem;
+    z-index: 999;
     background: rgb(var(--off-white));
     color: rgb(var(--black));
     box-shadow: 0 10px 15px -10px rgba(var(--black), 0.15);

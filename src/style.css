@@ -1,5 +1,5 @@
 :root {
-  font-family: "Poppins", sans-serif;
+  font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -12,7 +12,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   --style-font: "Playfair Display", serif;
-  --body-font: "Poppins", sans-serif;
+  --body-font: "Open Sans", sans-serif;
 
   --off-white: 255, 252, 241;
   --black: 51, 46, 47;
@@ -31,6 +31,25 @@ body {
   box-sizing: border-box;
   width: 95vw;
   margin: 0 auto;
+}
+
+/*****************
+    Typography
+******************/
+
+h1 {
+  font-size: 49px;
+  font-family: var(--style-font);
+  color: rgb(var(--black));
+  margin: 2rem 0;
+}
+
+.text-light {
+  color: rgb(var(--off-white));
+}
+
+p {
+  font-family: var(--body-font);
 }
 
 @media only screen

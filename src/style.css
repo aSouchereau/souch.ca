@@ -41,7 +41,7 @@ h1 {
   font-size: 49px;
   font-family: var(--style-font);
   color: rgb(var(--black));
-  margin: 2rem 0;
+  margin: 0 0 2rem 0;
 }
 
 .text-light {

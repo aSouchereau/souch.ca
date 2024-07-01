@@ -1,7 +1,7 @@
 import { ViteSSG } from 'vite-ssg';
 import './style.css'
 import App from './App.vue'
-import Index from "./components/Pages/Index.vue";
+import Index from "./components/Pages/Index/Index.vue";
 import Gallery from "./components/Pages/Gallery.vue";
 import Album from "@/components/Pages/Album.vue";
 import NotFound from "@/components/Pages/NotFound.vue";

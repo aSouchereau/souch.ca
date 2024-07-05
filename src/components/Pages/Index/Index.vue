@@ -2,6 +2,7 @@
   import { useHead } from "@unhead/vue";
   import HeroSection from "@/components/Pages/Index/HeroSection.vue";
   import SubHeadlineSection from "@/components/Pages/Index/SubHeadlineSection.vue";
+  import FeaturedSection from "@/components/Pages/Index/FeaturedSection.vue";
 
   useHead({
     title: 'souch.ca | Home'
@@ -11,7 +12,7 @@
 <template>
   <HeroSection />
   <SubHeadlineSection />
-<section id="featured"></section>
+  <FeaturedSection />
 <section id=""></section>
 </template>
 

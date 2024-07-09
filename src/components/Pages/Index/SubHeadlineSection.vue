@@ -4,7 +4,7 @@
 
 <template>
   <section id="sub-headline">
-    <div class="rule">
+    <div class="rule container">
       <hr>
     </div>
     <div class="sub-headline-content">
@@ -51,7 +51,6 @@ and (min-width: 650px) {
   }
   .rule {
     display: block;
-    width: 60%;
   }
 }
 </style>

@@ -64,7 +64,7 @@ p {
 @media only screen
 and (min-width: 496px) {
   .container {
-    width: auto;
+    width: 100%;
     padding: 0 2rem;
     margin: 0 auto;
   }

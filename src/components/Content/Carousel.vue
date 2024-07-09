@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Carousel } from "@fancyapps/ui";
-import {onMounted, ref} from "vue";
+import {onMounted, onUnmounted, ref} from "vue";
 
 const props = defineProps({
   options: Object,
@@ -8,11 +8,16 @@ const props = defineProps({
   photos: Object,
 });
 
-const container = ref<HTMLElement | null>(null);
+const container = ref<string | HTMLElement | null>(null);
 const options = props.options;
+let carousel: Carousel;
 
 onMounted(() => {
-  new Carousel(container, options);
+  carousel = new Carousel(container.value, options);
+});
+
+onUnmounted(() => {
+  carousel.destroy();
 });
 
 </script>

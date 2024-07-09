@@ -28,12 +28,16 @@ let options = {
 
 <template>
 <section id="featured">
- <Carousel v-if="isFinished" :photos="photos" id="main" :options="options" />
+  <div class="container">
+    <h2 class="text-light">Featured</h2>
+    <Carousel v-if="isFinished" :photos="photos" id="main" :options="options" />
+  </div>
 </section>
 </template>
 
 <style scoped>
 section#featured {
   background: rgb(var(--green));
+  padding: 3.5em 0;
 }
 </style>

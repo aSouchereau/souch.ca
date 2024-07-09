@@ -46,13 +46,13 @@ onUnmounted(() => {
 #cardSlider {
   --f-carousel-slide-width: 100%;
   --f-carousel-spacing: 0;
-  --f-carousel-slide-padding: 0 1rem;
+  --f-carousel-slide-padding: 0 0.5rem;
 
-  --f-button-prev-pos: 5rem;
-  --f-button-next-pos: 5rem;
 
   --f-button-bg: #fff;
   --f-button-color: #333;
+
+  --f-carousel-dot-color: rgb(var(--red));
 
   --f-button-width: 48px;
   --f-button-height: 48px;
@@ -67,9 +67,14 @@ onUnmounted(() => {
   rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .f-carousel__slide {
     width: calc(100% / 3);
+  }
+
+  #cardSlider {
+    --f-button-prev-pos: 5rem;
+    --f-button-next-pos: 5rem;
   }
 }
 </style>

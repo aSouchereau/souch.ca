@@ -49,8 +49,8 @@ onUnmounted(() => {
   --f-carousel-slide-padding: 0 0.5rem;
 
 
-  --f-button-bg: #fff;
-  --f-button-color: #333;
+  --f-button-bg: rgb(var(--off-white));
+  --f-button-color: rgb(var(--green));
 
   --f-carousel-dot-color: rgb(var(--red));
 
@@ -73,8 +73,8 @@ onUnmounted(() => {
   }
 
   #cardSlider {
-    --f-button-prev-pos: 5rem;
-    --f-button-next-pos: 5rem;
+    --f-button-prev-pos: -4rem;
+    --f-button-next-pos: -4rem;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Carousel } from "@fancyapps/ui";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 
 const props = defineProps({
   options: Object,
@@ -11,7 +11,10 @@ const props = defineProps({
 const container = ref<HTMLElement | null>(null);
 const options = props.options;
 
-new Carousel(container, options);
+onMounted(() => {
+  new Carousel(container, options);
+});
+
 </script>
 
 <template>

@@ -19,7 +19,10 @@ watch(data, (data) => {
 });
 
 let options = {
-infinite: false,
+  infinite: true,
+  center: false,
+  slidesPerPage: 'auto',
+  transition: false
 }
 </script>
 

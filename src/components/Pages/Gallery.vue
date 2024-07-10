@@ -13,21 +13,20 @@ import {useAlbum} from "@/composables/api/Album.ts";
 
   const router: Router = useRouter();
 
-  const { isFetching, error, data } = useAlbum(galleryAlbum);
+  const { isFetching, isFinished, error, data } = useAlbum(galleryAlbum);
 
   watch(error, (error) => {
     if (error) {
       router.push('/404');
     }
   });
-
 </script>
 
 <template>
   <div v-if="isFetching" class="loader-container">
     <Loader />
   </div>
-  <div v-else class="albums-container container">
+  <div v-else-if="isFinished" class="albums-container container">
     <div v-for="album in data.albums" :key="album.id" :id="'album' + album.id">
       <AlbumThumb :album-id="album.id" :title="album.title" :thumb-url="album.thumb ? album.thumb.thumb : null"/>
     </div>

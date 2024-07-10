@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { Carousel } from "@fancyapps/ui";
+import * as pkg from "@fancyapps/ui";
+const { Carousel } = pkg;
+
 import "@fancyapps/ui/dist/carousel/carousel.css";
 
 import {onMounted, onUnmounted, ref} from "vue";
@@ -12,7 +14,7 @@ const props = defineProps({
 
 const container = ref<string | HTMLElement | null>(null);
 const options = props.options;
-let carousel: Carousel;
+let carousel: any = null; // have to use any because of weird typescript behaviour requiring a different way to import Carousel package
 
 onMounted(() => {
   carousel = new Carousel(container.value, options);
@@ -20,6 +22,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   carousel.destroy();
+  carousel = null;
 });
 
 </script>

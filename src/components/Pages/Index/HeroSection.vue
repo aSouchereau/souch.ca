@@ -2,25 +2,20 @@
 import ActionButton from "@/components/Content/ActionButton.vue";
 import {ref, watch} from "vue";
 import {useAlbum} from "@/composables/api/Album.ts";
-import Loader from "@/components/Utility/Loader.vue";
 
-const { isFetching, data } = useAlbum(import.meta.env.VITE_HERO_ALBUM_ID);
+const { isFinished, data } = useAlbum(import.meta.env.VITE_HERO_ALBUM_ID);
 
 let bgUrl = ref('url("/src/assets/img/albumthumb.jpg")');
 
 watch(data, (data) => {
   let photo = data.photos[Math.floor(Math.random() * data.photos.length)];
   bgUrl.value =  "url(" + photo.size_variants.medium.url + ")";
-  console.log(bgUrl);
 });
 
 </script>
 
 <template>
-  <div v-if="isFetching" id="loading-screen">
-    <Loader />
-  </div>
-  <section v-else id="hero">
+  <section v-if="isFinished" id="hero">
     <div class="container">
       <div id="hero-content">
         <h1 class="text-light">Alex Souchereau</h1>
@@ -34,18 +29,6 @@ watch(data, (data) => {
 </template>
 
 <style scoped>
-
-#loading-screen {
-  z-index: 2000;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgb(var(--off-white));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 #hero {
   background-image: v-bind(bgUrl);

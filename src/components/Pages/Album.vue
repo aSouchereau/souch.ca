@@ -81,7 +81,8 @@ import {useHead} from "@unhead/vue";
             <a
                 :href="item.src"
                 :data-fancybox="item.albumId"
-                :data-caption="item.caption" >
+                :data-caption="item.caption"
+                :data-slug="item.id">
               <img :src="item.thumb" :alt="item.caption">
             </a>
           </li>

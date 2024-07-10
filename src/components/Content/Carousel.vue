@@ -31,7 +31,7 @@ onUnmounted(() => {
   <div class="f-carousel" ref="container" id="cardSlider">
     <div class="f-carousel__viewport">
       <div class="f-carousel__slide" v-for="photo in props.photos" :key="photo.id">
-        <img :src="photo.src" :alt="photo.caption">
+        <img :src="photo.thumb" :alt="photo.caption">
       </div>
     </div>
   </div>

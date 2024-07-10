@@ -28,12 +28,13 @@ import {useHead} from "@unhead/vue";
     }
   });
 
-  let photos: any[] = [];
+  let photos: Photo[] = [];
 
   watch(data, (data) => {
     data.photos.forEach((photo: any) => {
       let date = new Date(photo.created_at);
       photos.push({
+        id: photo.id,
         albumId: data.id,
         thumb: photo.size_variants.small.url,
         caption: `${photo.description ?? ""}<span class="copy-notice">Image &copy; ${date.getFullYear()} Alex Souchereau. All Rights Reserved.</span>`,
@@ -80,7 +81,8 @@ import {useHead} from "@unhead/vue";
             <a
                 :href="item.src"
                 :data-fancybox="item.albumId"
-                :data-caption="item.caption" >
+                :data-caption="item.caption"
+                :data-slug="item.id">
               <img :src="item.thumb" :alt="item.caption">
             </a>
           </li>

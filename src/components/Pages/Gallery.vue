@@ -1,34 +1,33 @@
 <script setup lang="ts">
-  import {useAlbums} from "@/composables/api/Album.ts";
+import {useAlbum} from "@/composables/api/Album.ts";
   import AlbumThumb from "@/components/Content/AlbumThumb.vue";
   import {Router, useRouter} from "vue-router";
   import Loader from "@/components/Utility/Loader.vue";
   import {watch} from "vue";
   import {useHead} from "@unhead/vue";
 
+  const galleryAlbum = import.meta.env.VITE_GALLERY_ALBUM_ID;
   useHead({
     title: 'souch.ca | Gallery'
   });
 
-
   const router: Router = useRouter();
 
-  const { isFetching, error, data } = useAlbums();
+  const { isFetching, isFinished, error, data } = useAlbum(galleryAlbum);
 
   watch(error, (error) => {
     if (error) {
       router.push('/404');
     }
   });
-
 </script>
 
 <template>
   <div v-if="isFetching" class="loader-container">
     <Loader />
   </div>
-  <div v-else class="albums-container container">
-    <div v-for="album in data" :key="album.id" :id="'album' + album.id">
+  <div v-else-if="isFinished" class="albums-container container">
+    <div v-for="album in data.albums" :key="album.id" :id="'album' + album.id">
       <AlbumThumb :album-id="album.id" :title="album.title" :thumb-url="album.thumb ? album.thumb.thumb : null"/>
     </div>
   </div>

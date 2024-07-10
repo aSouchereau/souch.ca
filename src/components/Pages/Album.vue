@@ -34,6 +34,7 @@ import {useHead} from "@unhead/vue";
     data.photos.forEach((photo: any) => {
       let date = new Date(photo.created_at);
       photos.push({
+        id: photo.id,
         albumId: data.id,
         thumb: photo.size_variants.small.url,
         caption: `${photo.description ?? ""}<span class="copy-notice">Image &copy; ${date.getFullYear()} Alex Souchereau. All Rights Reserved.</span>`,

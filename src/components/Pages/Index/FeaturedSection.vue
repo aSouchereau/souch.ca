@@ -10,6 +10,7 @@ let photos: Photo[] = [];
 watch(data, (data) => {
   data.photos.forEach((photo: any) => {
     photos.push({
+      id: photo.id,
       albumId: photo.album_id,
       thumb: photo.size_variants.small.url,
       src: photo.size_variants.medium2x?.url ?? photo.size_variants.medium?.url ?? photo.size_variants.small2x?.url ?? photo.size_variants.small.url,

@@ -35,10 +35,10 @@ console.log(destination);
 <template>
   <div class="f-carousel" ref="container" id="cardSlider">
     <div class="f-carousel__viewport">
-      <div class="f-carousel__slide" v-for="photo in props.photos" :key="photo.id" @click="navigateToImage('/album/' + photo.albumId + '#f-' + photo.id)">
+      <div class="f-carousel__slide" v-for="photo in props.photos" :key="photo.id" @click="navigateToImage('/album/' + photo.albumId + '#' + photo.id)">
         <img :src="photo.thumb" :alt="photo.caption">
         <div class="img-nav">
-          <ActionButton :destination="'/album/' + photo.albumId + '#f-' + photo.id" class="view-btn">View</ActionButton>
+          <ActionButton :destination="'/album/' + photo.albumId + '#' + photo.id" class="view-btn">View</ActionButton>
         </div>
       </div>
     </div>

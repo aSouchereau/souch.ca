@@ -3,7 +3,7 @@ import Carousel from "@/components/Content/Carousel.vue";
 import {useAlbum} from "@/composables/api/Album";
 import {watch} from "vue";
 
-const {isFetching, isFinished, error, data } = useAlbum(import.meta.env.VITE_FEATURED_ALBUM_ID);
+const { isFinished, data } = useAlbum(import.meta.env.VITE_FEATURED_ALBUM_ID);
 
 let photos: Photo[] = [];
 

@@ -28,7 +28,7 @@ import {useHead} from "@unhead/vue";
     }
   });
 
-  let photos: PhotoCollection = [];
+  let photos: Photo[] = [];
 
   watch(data, (data) => {
     data.photos.forEach((photo: any) => {

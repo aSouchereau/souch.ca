@@ -5,7 +5,7 @@ import {watch} from "vue";
 
 const {isFetching, isFinished, error, data } = useAlbum(import.meta.env.VITE_FEATURED_ALBUM_ID);
 
-let photos: PhotoCollection = [];
+let photos: Photo[] = [];
 
 watch(data, (data) => {
   data.photos.forEach((photo: any) => {

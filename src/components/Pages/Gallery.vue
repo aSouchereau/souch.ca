@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {useAlbum} from "@/composables/api/Album.ts";
-  import AlbumThumb from "@/components/Content/AlbumThumb.vue";
+  import AlbumThumb from "@/components/Utility/AlbumThumb.vue";
   import {Router, useRouter} from "vue-router";
   import Loader from "@/components/Utility/Loader.vue";
   import {watch} from "vue";

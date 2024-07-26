@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Carousel from "@/components/Content/Carousel.vue";
+import Carousel from "@/components/Utility/Carousel.vue";
 import {useAlbum} from "@/composables/api/Album";
 import {watch} from "vue";
 
@@ -13,7 +13,7 @@ watch(data, (data) => {
     photos.push({
       id: photo.id,
       albumId: photo.album_id,
-      thumb: photo.size_variants.small.url,
+      thumb: photo.size_variants.small2x.url,
       src: photo.size_variants.medium2x?.url ?? photo.size_variants.medium?.url ?? photo.size_variants.small2x?.url ?? photo.size_variants.small.url,
       caption: `${photo.description ?? ""}<span class="copy-notice">Image &copy; ${date.getFullYear()} Alex Souchereau. All Rights Reserved.</span>`,
     })

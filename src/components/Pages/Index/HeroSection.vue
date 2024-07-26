@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ActionButton from "@/components/Content/ActionButton.vue";
+import ActionButton from "@/components/Utility/ActionButton.vue";
 import {ref, watch} from "vue";
 import {useAlbum} from "@/composables/api/Album.ts";
 

@@ -5,7 +5,7 @@ const { Carousel } = pkg;
 import "@fancyapps/ui/dist/carousel/carousel.css";
 
 import {onMounted, onUnmounted, ref} from "vue";
-import ActionButton from "@/components/Content/ActionButton.vue";
+import ActionButton from "@/components/Utility/ActionButton.vue";
 
 const props = defineProps({
   options: Object,
@@ -26,17 +26,14 @@ onUnmounted(() => {
   carousel = null;
 });
 
-function navigateToImage(destination: string) {
-console.log(destination);
-}
-
 </script>
 
 <template>
   <div class="f-carousel" ref="container" id="cardSlider">
     <div class="f-carousel__viewport">
-      <div class="f-carousel__slide" v-for="photo in props.photos" :key="photo.id" @click="navigateToImage('/album/' + photo.albumId + '#' + photo.id)">
-        <img :src="photo.thumb" :alt="photo.caption">
+      <div class="f-carousel__slide" v-for="photo in props.photos" :key="photo.id">
+<!--        <img :src="photo.thumb" :alt="photo.caption">-->
+        <div class="img-body" :style="`background-image: url('${photo.thumb}')`"></div>
         <div class="img-nav">
           <ActionButton :destination="'/album/' + photo.albumId + '#' + photo.id" class="view-btn">View</ActionButton>
         </div>
@@ -46,6 +43,12 @@ console.log(destination);
 </template>
 
 <style scoped>
+.img-body {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
 .img-nav {
   position: absolute;
   visibility: hidden;
@@ -74,6 +77,7 @@ console.log(destination);
 }
 
 #cardSlider {
+  --f-carousel-slide-height: 30rem;
   --f-carousel-spacing: 16px;
   --f-carousel-slide-padding: 0;
 
@@ -104,6 +108,8 @@ console.log(destination);
   #cardSlider {
     --f-button-prev-pos: -4rem;
     --f-button-next-pos: -4rem;
+
+    --f-carousel-slide-height: 23rem;
   }
 }
 </style>

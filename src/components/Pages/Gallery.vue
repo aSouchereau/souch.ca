@@ -92,6 +92,14 @@
     grid-auto-rows: 15rem;
     row-gap: 1rem;
     column-gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  li {
+    list-style: none;
+  }
+  img {
+    width: 100%;
   }
 
   @media only screen

@@ -20,7 +20,7 @@ watch(data, (data) => {
       <div id="hero-content">
         <h1 class="text-light">Alex Souchereau</h1>
         <p class="text-light">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Hey, I'm Alex, a hobbyist photographer from Canada. I spend my time shooting interesting places in and around the Great Lakes. I love exploring cities, towns, or forests and documenting what I find.
         </p>
         <ActionButton destination="/gallery">View Gallery</ActionButton>
       </div>

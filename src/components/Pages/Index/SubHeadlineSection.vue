@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import {subheadlines} from "@/assets/content/subheadlines.ts";
 
+const subheadline = subheadlines[Math.floor(Math.random() * subheadlines.length)];
 </script>
 
 <template>
@@ -8,7 +10,7 @@
       <hr>
     </div>
     <div class="sub-headline-content">
-      <h2>Sub headline</h2>
+      <h2>{{ subheadline }}</h2>
     </div>
   </section>
 </template>

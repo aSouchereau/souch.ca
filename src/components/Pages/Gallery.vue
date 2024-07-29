@@ -32,7 +32,7 @@
         id: photo.id,
         albumId: data.id,
         thumb: photo.size_variants.small.url,
-        caption: `${photo.description ?? ""}<span class="copy-notice">Image &copy; ${date.getFullYear()} Alex Souchereau. All Rights Reserved.</span>`,
+        caption: `${photo.title ?? ""}<span class="copy-notice">Image &copy; ${date.getFullYear()} Alex Souchereau. All Rights Reserved.</span>`,
         src: photo.size_variants.medium2x?.url ?? photo.size_variants.medium?.url ?? photo.size_variants.small2x?.url ?? photo.size_variants.small.url,
       });
     });

@@ -26,14 +26,14 @@
   let photos: Photo[] = [];
 
   watch(data, (data) => {
-    data.photos.forEach((photo: any) => {
+    data.resource.photos.forEach((photo: any) => {
       let date = new Date(photo.created_at);
       photos.push({
         id: photo.id,
         albumId: data.id,
-        thumb: photo.size_variants.small.url,
+        thumb: photo.size_variants.small?.url,
         caption: `${photo.title ?? ""}<span class="copy-notice">Image &copy; ${date.getFullYear()} Alex Souchereau. All Rights Reserved.</span>`,
-        src: photo.size_variants.medium2x?.url ?? photo.size_variants.medium?.url ?? photo.size_variants.small2x?.url ?? photo.size_variants.small.url,
+        src: photo.size_variants.medium2x?.url ?? photo.size_variants.medium?.url ?? photo.size_variants.small2x?.url ?? photo.size_variants.small?.url,
       });
     });
   });
@@ -47,7 +47,7 @@
   <div v-else-if="isFinished" class="container">
     <h2>Gallery</h2>
     <div class="albums-container">
-      <div v-for="album in data.albums" :key="album.id" :id="'album' + album.id">
+      <div v-for="album in data.resource.albums" :key="album.id" :id="'album' + album.id">
         <AlbumThumb :album-id="album.id" :title="album.title" :thumb-url="album.thumb ? album.thumb.thumb : null"/>
       </div>
     </div>

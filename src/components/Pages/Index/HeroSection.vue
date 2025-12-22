@@ -8,7 +8,7 @@ const { isFinished, data } = useAlbum(import.meta.env.VITE_HERO_ALBUM_ID);
 let bgUrl = ref('url("/src/assets/img/albumthumb.jpg")');
 
 watch(data, (data) => {
-  let photo = data.photos[Math.floor(Math.random() * data.photos.length)];
+  let photo = data.resource.photos[Math.floor(Math.random() * data.resource.photos.length)];
   bgUrl.value =  "url(" + photo.size_variants.medium.url + ")";
 });
 
@@ -20,7 +20,7 @@ watch(data, (data) => {
       <div id="hero-content">
         <h1 class="text-light">Alex Souchereau</h1>
         <p class="text-light">
-          Hey, I'm Alex, a hobbyist photographer from Canada. I spend my time shooting interesting places in and around the Great Lakes. I love exploring cities, towns, or parks and documenting what I find.
+          Hey, I'm Alex, a photographer from Canada. I spend my time shooting interesting places in and around the Great Lakes. I love exploring cities, towns, or parks and documenting what I find.
         </p>
         <ActionButton destination="/gallery">View Gallery</ActionButton>
       </div>

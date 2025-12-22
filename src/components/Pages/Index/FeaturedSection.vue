@@ -8,7 +8,8 @@ const { isFinished, data } = useAlbum(import.meta.env.VITE_FEATURED_ALBUM_ID);
 let photos: Photo[] = [];
 
 watch(data, (data) => {
-  data.photos.forEach((photo: any) => {
+  console.log(data);
+  data.resource.photos.forEach((photo: any) => {
     let date = new Date(photo.created_at);
     photos.push({
       id: photo.id,

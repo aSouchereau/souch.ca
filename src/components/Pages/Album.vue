@@ -7,15 +7,6 @@ import Lightbox from "@/components/Utility/Lightbox.vue";
 import MasonryWall from "@yeger/vue-masonry-wall";
 import {useHead} from "@unhead/vue";
 
-/***********************
-          TOC
- 1. Data
- ***********************/
-
-/*****************
-      1. Data
- ****************/
-
   const route: RouteLocationNormalizedLoaded = useRoute();
   const albumId = route.params.id.toString();
   const router: Router = useRouter();
@@ -31,7 +22,7 @@ import {useHead} from "@unhead/vue";
   let photos: Photo[] = [];
 
   watch(data, (data) => {
-    data.photos.forEach((photo: any) => {
+    data.resource.photos.forEach((photo: any) => {
       let date = new Date(photo.created_at);
       photos.push({
         id: photo.id,

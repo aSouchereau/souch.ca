@@ -26,11 +26,12 @@ import {useHead} from "@unhead/vue";
       let date = new Date(photo.created_at);
       photos.push({
         id: photo.id,
-        albumId: data.id,
+        albumId: data.resource.id,
         thumb: photo.size_variants.small.url,
         caption: `${photo.title ?? ""}<span class="copy-notice">Image &copy; ${date.getFullYear()} Alex Souchereau. All Rights Reserved.</span>`,
         src: photo.size_variants.medium2x?.url ?? photo.size_variants.medium?.url ?? photo.size_variants.small2x?.url ?? photo.size_variants.small.url,
       });
+      console.log(photos);
     });
 
     useHead({

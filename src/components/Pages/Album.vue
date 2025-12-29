@@ -31,7 +31,6 @@ import {useHead} from "@unhead/vue";
         caption: `${photo.title ?? ""}<span class="copy-notice">Image &copy; ${date.getFullYear()} Alex Souchereau. All Rights Reserved.</span>`,
         src: photo.size_variants.medium2x?.url ?? photo.size_variants.medium?.url ?? photo.size_variants.small2x?.url ?? photo.size_variants.small.url,
       });
-      console.log(photos);
     });
 
     useHead({
@@ -49,8 +48,8 @@ import {useHead} from "@unhead/vue";
 </div>
 <div v-else-if="isFinished" class="container">
   <header class="album-header">
-    <h2>{{data.title}}</h2>
-    <p>{{data.description}}</p>
+    <h2>{{data.resource.title}}</h2>
+    <p>{{data.resource.description}}</p>
   </header>
 
   <Lightbox id="gallery-wrapper"
